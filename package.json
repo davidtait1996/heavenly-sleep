@@ -6,6 +6,19 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidtait1996/heavenly-sleep.git"
+  },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidtait1996/heavenly-sleep/issues"
+  },
+  "homepage": "https://github.com/davidtait1996/heavenly-sleep#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "googleapis": "^39.2.0",
+    "hellojs": "^1.19.5"
+  }
 }
