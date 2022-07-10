@@ -76,24 +76,18 @@ function getNewToken(oAuth2Client, callback) {
 function listMajors(auth) {
   const sheets = google.sheets({version: 'v4', auth});
   sheets.spreadsheets.values.get({
-    spreadsheetId: '1H9MFTJpKzDEcz0uxba2n8ZJrb5vdpklxKBlmVPJh_gA',
-    range: 'Sheet1!A:B',
+    spreadsheetId: '167l8FBwU1yxvPcKalNabfMhlX9aeoX7_-YId-1Ef50E',
+    range: '!A:G',
   }, (err, res) => {
     if (err) return console.log('The API returned an error: ' + err);
     const rows = res.data.values;
-    console.log(res);
     if (rows.length) {
-      let expenseTable = document.getElementById("expenses");
+      let json = { ...rows };
+      // console.log(json);
+      fs.writeFileSync("./data/current_bed_data.json", JSON.stringify(json));
+      // console.log("HERE I AM", fs.readFileSync("current_bed_data.json", "utf8"));
       rows.map((row) => {
-        // console.log(`${row[0]}, ${row[1]}`);
-        console.log(row);
-        // let newRow = document.createElement("tr");
-        // row.map((data) => {
-        //   let newData = document.createElement("td");
-        //   newData.textContent(data);
-        //   newRow.appendChild(newData);
-        // })
-        // expenseTable.appendChild(newRow);
+        // console.log(row);
       });
     } else {
       console.log('No data found.');
